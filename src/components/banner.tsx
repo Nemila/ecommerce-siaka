@@ -27,7 +27,7 @@ export default function Banner() {
           }}
         />
       </div>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-4 text-center md:justify-start md:text-left">
         <p className="text-sm leading-6 text-gray-900">
           <strong className="font-semibold">GeneriCon 2023</strong>
           <svg

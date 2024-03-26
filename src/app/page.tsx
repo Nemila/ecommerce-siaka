@@ -8,9 +8,9 @@ const HomePage = () => {
     <main className="container flex flex-col gap-8 p-8">
       <FeaturedCarousel />
 
-      <div className="grid grid-cols-3 border rounded-lg overflow-hidden">
-        <div className="group bg-white aspect-video flex flex-col justify-center gap-2 p-6">
-          <ThumbsUp className="w-8 h-8 transition-all group-hover:-translate-y-2" />
+      <div className="grid grid-cols-3 overflow-hidden rounded-lg border">
+        <div className="group flex aspect-video flex-col justify-center gap-2 bg-white p-6">
+          <ThumbsUp className="h-8 w-8 transition-all group-hover:-translate-y-2" />
           <p className="text-lg font-bold">96% Satisfait</p>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores,
@@ -18,8 +18,8 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="bg-white group border-x aspect-video flex flex-col justify-center gap-2 p-6">
-          <MessageCircle className="w-10 h-10 transition-all group-hover:-translate-y-2" />
+        <div className="group flex aspect-video flex-col justify-center gap-2 border-x bg-white p-6">
+          <MessageCircle className="h-10 w-10 transition-all group-hover:-translate-y-2" />
           <p className="text-lg font-bold">Discuss with designers</p>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores,
@@ -27,8 +27,8 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="bg-white group aspect-video flex flex-col justify-center gap-2 p-6">
-          <Lock className="w-8 h-8 transition-all group-hover:-translate-y-2" />
+        <div className="group flex aspect-video flex-col justify-center gap-2 bg-white p-6">
+          <Lock className="h-8 w-8 transition-all group-hover:-translate-y-2" />
           <p className="text-lg font-bold">Secured transactions</p>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores,
@@ -40,7 +40,7 @@ const HomePage = () => {
       <section className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="font-semibold text-2xl">Vetements pour femmes</h2>
+            <h2 className="text-2xl font-semibold">Vetements pour femmes</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           </div>
 
@@ -58,7 +58,7 @@ const HomePage = () => {
       <section className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="font-semibold text-2xl">Vetements pour hommes</h2>
+            <h2 className="text-2xl font-semibold">Vetements pour hommes</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           </div>
 
@@ -73,8 +73,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <div className="w-full rounded-lg overflow-hidden">
-        <div className="relative isolate overflow-hidden bg-gray-900 shadow-2xl gap-x-20 px-24 pt-0 flex justify-center items-center">
+      <div className="w-full overflow-hidden rounded-lg">
+        <div className="relative isolate flex items-center justify-center gap-x-20 overflow-hidden bg-gray-900 px-24 pt-0 shadow-2xl">
           <svg
             viewBox="0 0 1024 1024"
             className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
@@ -94,7 +94,7 @@ const HomePage = () => {
               </radialGradient>
             </defs>
           </svg>
-          <div className="max-w-md mx-0 flex-auto flex flex-col items-center py-16 text-center">
+          <div className="mx-0 flex max-w-md flex-auto flex-col items-center py-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white">
               Boost your productivity.
               <br />

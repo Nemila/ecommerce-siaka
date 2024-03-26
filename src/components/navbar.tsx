@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-import { Cross, ShoppingBag, ShoppingCart, X } from "lucide-react";
+import { Cross, Menu, ShoppingBag, ShoppingCart, X } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -34,20 +34,20 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="p-4 border-b">
-      <div className="container flex justify-between items-center">
-        <Link href="/" className="font-bold text-xl text-gray-800">
+    <header className="border-b p-4">
+      <div className="container flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold text-gray-800">
           Boutique
         </Link>
 
-        <ul className="flex items-center gap-8">
+        <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
                 className={cn(
                   "text-muted-foreground transition-all hover:text-gray-800",
-                  pathname === item.href && "text-gray-900"
+                  pathname === item.href && "text-gray-900",
                 )}
               >
                 {item.label}
@@ -56,33 +56,65 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button size="icon">
-              <ShoppingCart className="w-4 h-4" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Panier</SheetTitle>
-              <SheetDescription>
-                Vous pouvez ajoutez des produits a votre panier pour les
-                retrouver facilement plus tard et tout acheter en meme temps.
-              </SheetDescription>
-            </SheetHeader>
+        <div className="flex gap-4">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button size="icon">
+                <ShoppingCart className="h-4 w-4" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Panier</SheetTitle>
+                <SheetDescription>
+                  Vous pouvez ajoutez des produits a votre panier pour les
+                  retrouver facilement plus tard et tout acheter en meme temps.
+                </SheetDescription>
+              </SheetHeader>
 
-            <div className="mt-4 flex flex-col gap-4">
-              <CartCard />
-              <CartCard />
-              <CartCard />
-              <CartCard />
+              <div className="mt-4 flex flex-col gap-4">
+                <CartCard />
+                <CartCard />
+                <CartCard />
+                <CartCard />
 
-              <p>Total: 20.000 FCFA</p>
+                <p>Total: 20.000 FCFA</p>
 
-              <Button>Commander</Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+                <Button>Commander</Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                size="icon"
+                className="flex md:hidden"
+                variant={"outline"}
+              >
+                <Menu className="h-4 w-4" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+
+              <div className="mt-4 flex flex-col gap-2">
+                {navLinks.map((item) => (
+                  <Button
+                    key={item.href}
+                    variant={"ghost"}
+                    className={cn(pathname === item.href && "bg-muted")}
+                    asChild
+                  >
+                    <Link href={item.href}>{item.label}</Link>
+                  </Button>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
