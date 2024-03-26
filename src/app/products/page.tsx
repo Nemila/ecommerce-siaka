@@ -13,9 +13,9 @@ type Props = {};
 
 const ProduitPage = (props: Props) => {
   return (
-    <main className="flex flex-1 container p-8">
+    <main className="container flex flex-1 p-4 md:p-8">
       <section className="flex flex-col gap-4">
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           <Input className="w-full" placeholder="Recherche" />
 
           <Select>
@@ -53,11 +53,15 @@ const ProduitPage = (props: Props) => {
         </div>
 
         <div>
-          <h2 className="font-semibold text-2xl">Liste des produits</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <h2 className="text-lg font-semibold md:text-2xl">
+            Liste des produits
+          </h2>
+          <p className="text-sm md:text-base">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <ProductCard />
           <ProductCard />
           <ProductCard />
