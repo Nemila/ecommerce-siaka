@@ -18,7 +18,7 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="group flex aspect-video flex-col justify-center gap-2 border-y bg-white p-6 md:border-x">
+        <div className="group flex aspect-video flex-col justify-center gap-2 border-x-0 border-y bg-white p-6 md:border-x md:border-y-0">
           <MessageCircle className="h-10 w-10 transition-all group-hover:-translate-y-2" />
           <p className="text-lg font-bold">Discuss with designers</p>
           <p>
