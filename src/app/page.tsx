@@ -40,10 +40,10 @@ const HomePage = () => {
       <section className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold md:text-2xl">
+            <h2 className="line-clamp-1 text-lg font-semibold md:text-2xl">
               Categorie Femmes
             </h2>
-            <p className="text-sm md:text-base">
+            <p className="line-clamp-2 text-sm md:text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
           </div>
@@ -62,10 +62,10 @@ const HomePage = () => {
       <section className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold md:text-2xl">
+            <h2 className="line-clamp-1 text-lg font-semibold md:text-2xl">
               Categorie Hommes
             </h2>
-            <p className="text-sm md:text-base">
+            <p className="line-clamp-2 text-sm md:text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </p>
           </div>
