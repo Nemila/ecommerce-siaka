@@ -1,12 +1,70 @@
 import { FeaturedCarousel } from "@/components/featured-carousel";
 import ProductCard from "@/components/product-card";
 import { Button } from "@/components/ui/button";
+import shopify from "@/lib/shopify";
 import { Lock, MessageCircle, ThumbsUp } from "lucide-react";
 
-const HomePage = () => {
+// const productQuery = `
+// query {
+//   products(first: 8) {
+//     edges {
+//       node {
+//         title
+//         images(first:1) {
+//           edges {
+//             node {
+//               altText
+//               id
+//               url
+//             }
+//           }
+//         }
+//         description
+//         tags
+//         priceRangeV2 {
+//           maxVariantPrice {
+//             amount
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `;
+
+const HomePage = async () => {
+  const productQuery = `
+  {
+    products(first: 8) {
+      edges {
+        node {
+          title
+          description
+          priceRange{
+            maxVariantPrice {
+              amount
+            }
+          }
+          featuredImage{
+            altText
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
+  const { data, errors, extensions } = await shopify.request(productQuery);
+
+  console.log("products", data);
+  console.log("errors", errors?.graphQLErrors);
+
   return (
     <main className="container flex flex-col gap-8 p-4 md:p-8">
       <FeaturedCarousel />
+
+      {JSON.stringify(data)}
 
       <div className="grid overflow-hidden rounded-lg border md:grid-cols-3">
         <div className="group flex aspect-video flex-col justify-center gap-2 bg-white p-6">
