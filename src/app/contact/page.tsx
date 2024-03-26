@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 
 const ContactPage = () => {
   return (
-    <main className="flex-1 p-8">
-      <div className="container flex flex-col gap-8">
-        <div className="flex flex-col max-w-lg gap-4">
-          <h2 className="font-bold text-4xl">Contactez-nous</h2>
+    <main className="flex-1">
+      <div className="container flex flex-col gap-8 p-4 md:p-8">
+        <div className="flex max-w-lg flex-col gap-4">
+          <h2 className="text-4xl font-bold">Contactez-nous</h2>
 
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
@@ -16,14 +16,14 @@ const ContactPage = () => {
           </p>
         </div>
 
-        <div className="flex justify-center gap-6">
-          <div className="flex-1 aspect-square overflow-hidden rounded-lg">
+        <div className="flex flex-col justify-center gap-6 md:flex-row">
+          <div className="aspect-square flex-1 overflow-hidden rounded-lg">
             <Image
               alt=""
               width={500}
               height={500}
               src="https://images.unsplash.com/photo-1529245019870-59b249281fd3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
 
