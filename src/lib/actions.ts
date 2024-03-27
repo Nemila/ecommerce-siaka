@@ -14,7 +14,6 @@ export const getFeaturedProducts = async () => {
     const featuredProducts = res.data.data.attributes.products.data.map(
       (item: any) => ({ id: item.id, ...item.attributes }),
     );
-    console.log(featuredProducts);
     return featuredProducts;
   } catch (error: any) {
     console.log(error.message);

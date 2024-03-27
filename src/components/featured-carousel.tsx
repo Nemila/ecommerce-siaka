@@ -42,7 +42,7 @@ const FeaturedCarousel = ({ featuredProducts }: Props) => {
             <section
               className="flex h-[400px] w-full items-center justify-center gap-16 overflow-hidden rounded-lg px-4 py-8 text-center text-white md:text-left"
               style={{
-                background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${process.env.STRAPI_API_ENDPOINT}${product.banner.data.attributes.url}')`,
+                background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://ecommerce-backend-rmiy.onrender.com${product.banner.data.attributes.url}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -50,7 +50,7 @@ const FeaturedCarousel = ({ featuredProducts }: Props) => {
               <div className="hidden aspect-[3/4] h-full overflow-hidden rounded-md md:flex">
                 <Image
                   alt=""
-                  src={`http://localhost:1337${product.thumbnail.data.attributes.url}`}
+                  src={`https://ecommerce-backend-rmiy.onrender.com${product.thumbnail.data.attributes.url}`}
                   width={500}
                   height={500}
                   className="h-full w-full object-cover object-center"
