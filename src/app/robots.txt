@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://boutique-brown.vercel.app/sitemap.xml

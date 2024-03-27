@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Banner from "@/components/banner";
+import Banner from "@/components/layouts/banner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,8 +25,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen flex flex-col bg-background font-sans antialiased text-gray-800",
-          fontSans.variable
+          "flex min-h-screen flex-col bg-background font-sans text-gray-800 antialiased",
+          fontSans.variable,
         )}
       >
         <Banner />
