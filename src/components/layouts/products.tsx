@@ -10,7 +10,7 @@ type Props = {
 
 const Products = ({ title, description }: Props) => {
   return (
-    <section className="flex flex-col gap-4">
+    <section className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="line-clamp-1 text-lg font-semibold md:text-2xl">
