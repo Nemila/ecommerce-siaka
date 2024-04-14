@@ -2,38 +2,39 @@
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Product } from "@/lib/queries";
 
-const ProductCard = () => {
+type Props = {
+  data: Product;
+};
+
+const ProductCard = ({ data }: Props) => {
   const router = useRouter();
 
   return (
     <Card
-      className="w-full rounded-md overflow-hidden cursor-pointer"
-      onClick={() => router.push(`/products/${1}`)}
+      className="w-full cursor-pointer overflow-hidden rounded-md"
+      onClick={() => router.push(`/products/${data.handle}`)}
     >
-      <div className="aspect-[1/1] group overflow-hidden">
+      <div className="group aspect-[1/1] overflow-hidden">
         <Image
-          src="https://lh3.googleusercontent.com/-41pNo82brDA/WtsthJZc6wI/AAAAAAAAdbM/5WVZUpTQ22AeR33L9aElg7cuGTcNgrkkwCHMYCw/s0/african-women-fashion-styles0031.jpg"
-          alt=""
+          src={data?.featuredImage.url}
+          alt={data?.featuredImage.altText || ""}
           width={500}
           height={500}
-          className="transition-all group-hover:scale-110 w-full h-full object-cover object-center"
+          className="h-full w-full object-cover object-center transition-all group-hover:scale-110"
         />
       </div>
 
       <div className="p-4">
-        <h2 className="font-semibold text-lg line-clamp-1">
-          Boubou Style African
-        </h2>
+        <h2 className="line-clamp-1 text-lg font-semibold">{data.title}</h2>
 
-        <p className="line-clamp-1 text-sm">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi
-          voluptates porro, veniam praesentium possimus iure quia, facilis rem
-          obcaecati eaque qui, neque quaerat soluta temporibus minima unde
-          accusamus voluptatem vel.
+        <p className="line-clamp-1 text-sm">{data.description}</p>
+
+        <p className="font-semibold text-gray-800">
+          {data.priceRange.maxVariantPrice.amount}{" "}
+          <span>{data.priceRange.maxVariantPrice.currencyCode}</span>
         </p>
-
-        <p className="font-semibold text-gray-800">5000 FCFA</p>
       </div>
     </Card>
   );

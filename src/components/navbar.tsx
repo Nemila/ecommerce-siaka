@@ -1,9 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "./ui/button";
-import { Cross, Menu, ShoppingBag, ShoppingCart, X } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -12,8 +7,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Menu, ShoppingCart } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import CartCard from "./cart-card";
+import { Button } from "./ui/button";
 
 const navLinks = [
   {
@@ -65,11 +64,7 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
-                <SheetTitle>Panier</SheetTitle>
-                <SheetDescription>
-                  Vous pouvez ajoutez des produits a votre panier pour les
-                  retrouver facilement plus tard et tout acheter en meme temps.
-                </SheetDescription>
+                <SheetTitle>Panier (0)</SheetTitle>
               </SheetHeader>
 
               <div className="mt-4 flex flex-col gap-4">

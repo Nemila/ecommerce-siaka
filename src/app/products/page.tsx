@@ -8,10 +8,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import shopify from "@/lib/shopify";
+import { QueryProducts, queryProducts } from "@/lib/queries";
 
-type Props = {};
+const ProductPage = async () => {
+  const { data } = await shopify.request<QueryProducts>(queryProducts, {
+    variables: {
+      productsCount: 15,
+    },
+  });
 
-const ProduitPage = (props: Props) => {
   return (
     <main className="container flex flex-1 p-4 md:p-8">
       <section className="flex flex-col gap-4">
@@ -62,18 +68,18 @@ const ProduitPage = (props: Props) => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {/* <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <ProductCard /> */}
         </div>
       </section>
     </main>
   );
 };
 
-export default ProduitPage;
+export default ProductPage;

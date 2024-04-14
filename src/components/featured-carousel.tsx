@@ -19,6 +19,9 @@ export function FeaturedCarousel() {
           delay: 5000,
         }),
       ]}
+      opts={{
+        loop: true,
+      }}
     >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (

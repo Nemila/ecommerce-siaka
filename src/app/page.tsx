@@ -1,70 +1,36 @@
 import { FeaturedCarousel } from "@/components/featured-carousel";
-import ProductCard from "@/components/product-card";
 import { Button } from "@/components/ui/button";
+import Section from "@/layout/section";
+import {
+  queryMaleCategory,
+  queryFemaleCategory,
+  QueryCategory,
+} from "@/lib/queries";
 import shopify from "@/lib/shopify";
 import { Lock, MessageCircle, ThumbsUp } from "lucide-react";
 
-// const productQuery = `
-// query {
-//   products(first: 8) {
-//     edges {
-//       node {
-//         title
-//         images(first:1) {
-//           edges {
-//             node {
-//               altText
-//               id
-//               url
-//             }
-//           }
-//         }
-//         description
-//         tags
-//         priceRangeV2 {
-//           maxVariantPrice {
-//             amount
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-// `;
-
 const HomePage = async () => {
-  const productQuery = `
-  {
-    products(first: 8) {
-      edges {
-        node {
-          title
-          description
-          priceRange{
-            maxVariantPrice {
-              amount
-            }
-          }
-          featuredImage{
-            altText
-            url
-          }
-        }
-      }
-    }
-  }
-`;
+  const { data: femaleCategory } = await shopify.request<QueryCategory>(
+    queryFemaleCategory,
+    {
+      variables: {
+        productsCount: 4,
+      },
+    },
+  );
 
-  const { data, errors, extensions } = await shopify.request(productQuery);
-
-  console.log("products", data);
-  console.log("errors", errors?.graphQLErrors);
+  const { data: maleCategory } = await shopify.request<QueryCategory>(
+    queryMaleCategory,
+    {
+      variables: {
+        productsCount: 4,
+      },
+    },
+  );
 
   return (
     <main className="container flex flex-col gap-8 p-4 md:p-8">
       <FeaturedCarousel />
-
-      {JSON.stringify(data)}
 
       <div className="grid overflow-hidden rounded-lg border md:grid-cols-3">
         <div className="group flex aspect-video flex-col justify-center gap-2 bg-white p-6">
@@ -95,49 +61,9 @@ const HomePage = async () => {
         </div>
       </div>
 
-      <section className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="line-clamp-1 text-lg font-semibold md:text-2xl">
-              Categorie Femmes
-            </h2>
-            <p className="line-clamp-2 text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
+      {femaleCategory && <Section data={femaleCategory.collectionByHandle} />}
 
-          <Button variant="outline">Voir Product</Button>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
-      </section>
-
-      <section className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="line-clamp-1 text-lg font-semibold md:text-2xl">
-              Categorie Hommes
-            </h2>
-            <p className="line-clamp-2 text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-
-          <Button variant="outline">Voir Product</Button>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
-      </section>
+      {maleCategory && <Section data={maleCategory.collectionByHandle} />}
 
       <div className="w-full overflow-hidden rounded-lg">
         <div className="relative isolate flex items-center justify-center gap-x-20 overflow-hidden bg-gray-900 px-4 pt-0 shadow-2xl md:px-24">
