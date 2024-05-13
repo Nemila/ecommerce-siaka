@@ -34,7 +34,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="border-b">
+    <header className="flex h-16 items-center justify-center border-b">
       <div className="container flex items-center justify-between p-4 md:px-8 md:py-4">
         <Link href="/" className="text-xl font-bold text-gray-800">
           Boutique

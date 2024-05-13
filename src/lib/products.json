@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "price": 1500,
+    "poster": "https://media.istockphoto.com/id/1096139132/tr/foto%C4%9Fraf/geleneksel-giyim-afrikal%C4%B1-amerikal%C4%B1-gen%C3%A7-kad%C4%B1n.webp?s=2048x2048&w=is&k=20&c=_K3sMe5NIijTjpZtcQb-RScw0xEVgk6VhKILdAuEpW0=",
+    "title": "Nom du produit 1",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi nostrum adipisci quasi, ratione ut amet porro tempora. Quidem minima quis laboriosam corrupti rem! Accusantium est maiores optio tempora, et dolore.",
+    "tags": [
+      "Prix: 2500 XOF",
+      "Tailles disponibles: XS, SM, M, L, XL",
+      "Categorie: Femme"
+    ],
+    "images": [
+      "https://media.istockphoto.com/id/971123470/tr/foto%C4%9Fraf/tipik-afro-giyim-g%C3%BCzel-afrikal%C4%B1-amerikal%C4%B1-kad%C4%B1n.jpg?s=1024x1024&w=is&k=20&c=T8kJ533oMdoqta7iWkMsVYpuR9H-o0iN6f9H0kNd8Gk=",
+      "https://media.istockphoto.com/id/1141402919/tr/foto%C4%9Fraf/bahar-kokusu-hissedin-hamilelik-keyfini-%C3%A7%C4%B1kar%C4%B1n.jpg?s=1024x1024&w=is&k=20&c=CM-MMa7SObT6r1TnHanFugykEe3xl6aCTAzA94IwLeU=",
+      "https://media.istockphoto.com/id/1137605248/tr/foto%C4%9Fraf/geleneksel-giyim-g%C3%BCzel-afrikal%C4%B1-kad%C4%B1n.jpg?s=1024x1024&w=is&k=20&c=Y8ixfklVjsxn8NTQSzfh237Fiq-WtG_oQNpT3c6YWvo="
+    ],
+    "categories": ["femmes", "vetements"]
+  }
+]

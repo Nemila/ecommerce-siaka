@@ -14,6 +14,9 @@ export function FeaturedCarousel() {
   return (
     <Carousel
       className="w-full"
+      opts={{
+        loop: true,
+      }}
       plugins={[
         Autoplay({
           delay: 5000,
@@ -24,7 +27,7 @@ export function FeaturedCarousel() {
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
             <section
-              className="flex h-[400px] w-full items-center justify-center gap-16 overflow-hidden rounded-lg px-4 py-8 text-center text-white md:text-left"
+              className="flex h-[450px] w-full items-center justify-center gap-16 overflow-hidden rounded-lg px-4 py-8 text-center text-white md:text-left"
               style={{
                 background:
                   "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1493655430214-3dd7718460bb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",

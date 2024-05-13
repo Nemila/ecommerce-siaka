@@ -3,18 +3,32 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const ProductCard = () => {
+type Props = {
+  item: {
+    id: number;
+    price: number;
+    poster: string;
+    title: string;
+    description: string;
+    tags: string[];
+    images: string[];
+    categories: string[];
+  };
+};
+
+const ProductCard = ({ item }: Props) => {
   const router = useRouter();
 
   return (
     <Card
       className="w-full cursor-pointer overflow-hidden rounded-md"
-      onClick={() => router.push(`/products/${1}`)}
+      onClick={() => router.push(`/products/${item.id}`)}
     >
       <div className="group aspect-[1/1] overflow-hidden">
         <Image
-          src="https://lh3.googleusercontent.com/-41pNo82brDA/WtsthJZc6wI/AAAAAAAAdbM/5WVZUpTQ22AeR33L9aElg7cuGTcNgrkkwCHMYCw/s0/african-women-fashion-styles0031.jpg"
-          alt=""
+          src={item.poster}
+          alt={item.title}
+          title={item.title}
           width={500}
           height={500}
           className="h-full w-full object-cover object-center transition-all group-hover:scale-110"
@@ -22,18 +36,9 @@ const ProductCard = () => {
       </div>
 
       <div className="p-4">
-        <h2 className="line-clamp-1 text-lg font-semibold">
-          Boubou Style African
-        </h2>
-
-        <p className="line-clamp-1 text-sm">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi
-          voluptates porro, veniam praesentium possimus iure quia, facilis rem
-          obcaecati eaque qui, neque quaerat soluta temporibus minima unde
-          accusamus voluptatem vel.
-        </p>
-
-        <p className="font-semibold text-gray-800">5000 FCFA</p>
+        <h2 className="line-clamp-1 text-lg font-semibold">{item.title}</h2>
+        <p className="line-clamp-1 text-sm">{item.description}</p>
+        <p className="font-semibold text-gray-800">{item.price} FCFA</p>
       </div>
     </Card>
   );

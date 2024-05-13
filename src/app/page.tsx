@@ -8,8 +8,8 @@ const HomePage = () => {
     <main className="container flex flex-col gap-8 p-4 md:p-8">
       <FeaturedCarousel />
       <AboutSection />
-      <Products title="Categorie Femme" description="" />
-      <Products title="Categorie Homme" description="" />
+      <Products title="Categorie Femme" description="" category="femmes" />
+      <Products title="Categorie Homme" description="" category="hommes" />
       <CallToAction />
     </main>
   );

@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import products from "@/lib/products.json";
 
 type Props = {};
 
@@ -61,15 +62,10 @@ const ProduitPage = (props: Props) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5">
+          {products.map((item) => (
+            <ProductCard key={item.id} item={item} />
+          ))}
         </div>
       </section>
     </main>

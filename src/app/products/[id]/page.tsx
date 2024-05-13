@@ -1,8 +1,16 @@
 import ImageMagnifier from "@/components/image-magnifier";
 import ProductCard from "@/components/product-card";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import products from "@/lib/products.json";
 import Image from "next/image";
-import React from "react";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -11,31 +19,31 @@ type Props = {
 };
 
 const ProductDetailPage = ({ params }: Props) => {
+  const id = Number(params.id);
+  if (isNaN(id)) return notFound();
+  const details = products.find((item) => item.id === id);
+
   return (
     <main className="flex-1">
       <div className="container space-y-8 p-4 md:p-8">
         <div className="flex flex-col gap-8 md:flex-row">
           <ImageMagnifier
             className="aspect-square w-full overflow-hidden rounded-md md:w-1/3"
-            imageUrl="https://images.unsplash.com/photo-1532332248682-206cc786359f?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            imageUrl={details?.poster ?? ""}
           />
 
           <div className="w-full space-y-6 md:w-2/3">
             <div className="space-y-4">
-              <h2 className="text-4xl font-bold">Nom du produit {params.id}</h2>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi
-                nostrum adipisci quasi, ratione ut amet porro tempora. Quidem
-                minima quis laboriosam corrupti rem! Accusantium est maiores
-                optio tempora, et dolore.
-              </p>
+              <h2 className="text-4xl font-bold">{details?.title}</h2>
+              <p>{details?.description}</p>
             </div>
 
             <div className="pl-10 text-muted-foreground">
-              <p className="list-item ">Prix: 2500 XOF</p>
-              <p className="list-item">Tailles disponibles: XS, SM, M, L, XL</p>
-              <p className="list-item">Categorie: Homme</p>
+              {details?.tags.map((item) => (
+                <p key={item} className="list-item">
+                  {item}
+                </p>
+              ))}
             </div>
 
             <div className="space-x-4">
@@ -45,13 +53,49 @@ const ProductDetailPage = ({ params }: Props) => {
           </div>
         </div>
 
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {details?.images.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className="aspect-video md:basis-1/2 lg:basis-1/4"
+              >
+                <Image
+                  src={item}
+                  alt=""
+                  width={500}
+                  height={500}
+                  className="h-full w-full overflow-hidden rounded-md object-cover object-center"
+                />
+
+                {/* <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-3xl font-semibold">
+                        {index + 1}
+                      </span>
+                    </CardContent>
+                  </Card>
+                </div> */}
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+
         <div className="space-y-2">
           <h3 className="text-2xl font-bold">Autres Produits</h3>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+            {products.slice(0, 6).map((item) => (
+              <ProductCard key={item.id} item={item} />
+            ))}
           </div>
         </div>
       </div>
