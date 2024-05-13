@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <header className="border-b">
-      <div className="container flex items-center justify-between p-4 md:px-8 md:py-4">
+      <div className="container flex max-h-16 items-center justify-between p-4 md:px-8 md:py-4">
         <Link href="/" className="text-xl font-bold text-gray-800">
           Boutique
         </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-muted-foreground transition-all hover:text-gray-800",
+                  "text-sm text-muted-foreground transition-all hover:text-gray-800",
                   pathname === item.href && "text-gray-900",
                 )}
               >
@@ -55,7 +55,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="flex gap-4">
+        {/* <div className="flex gap-4">
           <Sheet>
             <SheetTrigger asChild>
               <Button size="icon">
@@ -109,7 +109,7 @@ const Navbar = () => {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
+        </div> */}
       </div>
     </header>
   );
