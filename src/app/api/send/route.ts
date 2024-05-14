@@ -7,8 +7,6 @@ import { NextRequest } from "next/server";
 import React from "react";
 import { Resend } from "resend";
 
-const email = "lexitudebusiness@gmail.com";
-
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function GET(req: NextRequest) {
@@ -30,7 +28,7 @@ export async function GET(req: NextRequest) {
 
   const { error: ownerEmailError } = await resend.emails.send({
     from: "Luxetude <onboarding@resend.dev>",
-    to: "pridila.2006@gmail.com",
+    to: "lexitudebusiness@gmail.com",
     subject: `Nouvelle Commande Reçue - N° de Commande ${orderNumber}`,
     react: OrderEmail({
       amount: product.price,

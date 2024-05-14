@@ -36,6 +36,7 @@ const ProductDetailPage = ({ params }: Props) => {
           <div className="w-full space-y-6 md:w-2/3">
             <div className="space-y-4">
               <h2 className="text-4xl font-bold">{product.title}</h2>
+              <h2 className="text-2xl font-medium">{product.price} FCFA</h2>
               <p>{product.description}</p>
             </div>
 
