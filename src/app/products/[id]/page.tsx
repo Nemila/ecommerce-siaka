@@ -1,4 +1,3 @@
-import { orderProduct } from "@/actions";
 import ImageMagnifier from "@/components/image-magnifier";
 import ProductCard from "@/components/product-card";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,6 @@ import {
 } from "@/components/ui/carousel";
 import products from "@/lib/products.json";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type Props = {
