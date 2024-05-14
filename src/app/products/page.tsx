@@ -16,7 +16,7 @@ const ProduitPage = (props: Props) => {
   return (
     <main className="container flex flex-1 p-4 md:p-8">
       <section className="flex flex-col gap-4">
-        <div className="flex flex-wrap gap-4">
+        {/* <div className="flex flex-wrap gap-4">
           <Input className="w-full" placeholder="Recherche" />
 
           <Select>
@@ -51,7 +51,7 @@ const ProduitPage = (props: Props) => {
           </Select>
 
           <Button>Rechercher</Button>
-        </div>
+        </div> */}
 
         <div>
           <h2 className="text-lg font-semibold md:text-2xl">

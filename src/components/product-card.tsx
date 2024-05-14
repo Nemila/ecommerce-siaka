@@ -1,7 +1,7 @@
 "use client";
-import { Card } from "@/components/ui/card";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Badge } from "./ui/badge";
 
 type Props = {
   item: {
@@ -17,13 +17,14 @@ type Props = {
 };
 
 const ProductCard = ({ item }: Props) => {
-  const router = useRouter();
-
   return (
-    <Card
-      className="w-full cursor-pointer overflow-hidden rounded-md"
-      onClick={() => router.push(`/products/${item.id}`)}
+    <Link
+      href={`/products/${item.id}`}
+      className="relative w-full cursor-pointer overflow-hidden rounded-md border shadow-sm"
     >
+      <Badge className="absolute right-2 top-2 z-20">
+        {item.categories[0]}
+      </Badge>
       <div className="group aspect-[1/1] overflow-hidden">
         <Image
           src={item.poster}
@@ -40,7 +41,7 @@ const ProductCard = ({ item }: Props) => {
         <p className="line-clamp-1 text-sm">{item.description}</p>
         <p className="font-semibold text-gray-800">{item.price} FCFA</p>
       </div>
-    </Card>
+    </Link>
   );
 };
 
