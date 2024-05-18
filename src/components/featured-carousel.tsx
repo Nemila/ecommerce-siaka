@@ -15,13 +15,14 @@ import Link from "next/link";
 export function FeaturedCarousel() {
   return (
     <Carousel
-      className="w-full"
+      className="flex w-full flex-col gap-2"
       opts={{
         loop: true,
+        duration: 40,
       }}
       plugins={[
         Autoplay({
-          delay: 5000,
+          delay: 8000,
         }),
       ]}
     >
@@ -58,8 +59,18 @@ export function FeaturedCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="hidden md:flex" />
-      <CarouselNext className="hidden md:flex" />
+
+      <div className="flex gap-2">
+        <CarouselPrevious
+          variant={"default"}
+          className="static h-10 w-32 translate-x-0 translate-y-0"
+        />
+
+        <CarouselNext
+          variant={"default"}
+          className="static h-10 w-32 translate-x-0 translate-y-0"
+        />
+      </div>
     </Carousel>
   );
 }

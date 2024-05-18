@@ -1,9 +1,7 @@
-import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-type Props = {};
-
-const CallToAction = (props: Props) => {
+const CallToAction = () => {
   return (
     <div className="w-full overflow-hidden rounded-lg">
       <div className="relative isolate flex items-center justify-center gap-x-20 overflow-hidden bg-gray-900 px-4 pt-0 shadow-2xl md:px-24">
@@ -34,10 +32,12 @@ const CallToAction = (props: Props) => {
           </h2>
           <p className="mt-4 text-base text-gray-300 md:text-lg md:leading-8">
             Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-            Malesuada adipiscing sagittis vel.
+            Malesuada adipiscing sagittis.
           </p>
           <div className="mt-4 flex items-center justify-center gap-x-6">
-            <Button variant="secondary">Voir Produits</Button>
+            <Button variant="secondary" asChild>
+              <Link href={"/products"}>Voir Produits</Link>
+            </Button>
           </div>
         </div>
       </div>

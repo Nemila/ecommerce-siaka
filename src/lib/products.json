@@ -27,5 +27,35 @@
       "https://africanvibes.com/ezoimgfmt/cdn.africanvibes.com/wp-content/uploads/2023/09/08064613/1-3-1025x577.png?ezimgfmt=rs:0x0/rscb289/ngcb288/notWebP"
     ],
     "categories": ["hommes", "vetements"]
+  },
+  {
+    "id": 2,
+    "price": 3000,
+    "poster": "https://www.laviye.com/cdn/shop/products/L17Sep-320_500x.jpg?v=1664499302",
+    "title": "Nom du produit 3",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi nostrum adipisci quasi, ratione ut amet porro tempora. Quidem minima quis laboriosam corrupti rem! Accusantium est maiores optio tempora, et dolore.",
+    "tags": [
+      "Tailles disponibles: XS, SM, M, L, XL",
+      "Fait en coton 100% Malien"
+    ],
+    "images": [
+      "https://africanvibes.com/ezoimgfmt/cdn.africanvibes.com/wp-content/uploads/2023/09/08064613/1-3-1025x577.png?ezimgfmt=rs:0x0/rscb289/ngcb288/notWebP"
+    ],
+    "categories": ["femmes", "vetements"]
+  },
+  {
+    "id": 3,
+    "price": 4000,
+    "poster": "https://www.laviye.com/cdn/shop/products/L17Sep-320_500x.jpg?v=1664499302",
+    "title": "Nom du produit 4",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi nostrum adipisci quasi, ratione ut amet porro tempora. Quidem minima quis laboriosam corrupti rem! Accusantium est maiores optio tempora, et dolore.",
+    "tags": [
+      "Tailles disponibles: XS, SM, M, L, XL",
+      "Fait en coton 100% Malien"
+    ],
+    "images": [
+      "https://africanvibes.com/ezoimgfmt/cdn.africanvibes.com/wp-content/uploads/2023/09/08064613/1-3-1025x577.png?ezimgfmt=rs:0x0/rscb289/ngcb288/notWebP"
+    ],
+    "categories": ["hommes", "vetements"]
   }
 ]

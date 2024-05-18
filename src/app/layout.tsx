@@ -1,11 +1,10 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Montserrat as FontSans } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Banner from "@/components/layouts/banner";
-import { ClerkProvider } from "@clerk/nextjs";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,16 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
             "flex min-h-screen flex-col bg-background font-sans text-gray-800 antialiased",
             fontSans.variable,
           )}
         >
-          <Banner />
           <Navbar />
-          {children}
+          <div className="flex-1">{children}</div>
           <Footer />
         </body>
       </html>

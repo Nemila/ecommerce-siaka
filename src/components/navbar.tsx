@@ -3,12 +3,24 @@ import { cn } from "@/lib/utils";
 import {
   SignedIn,
   SignedOut,
+  SignIn,
+  SignInButton,
   SignOutButton,
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "./ui/button";
+import { Menu } from "lucide-react";
 
 const navLinks = [
   {
@@ -29,8 +41,8 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="flex h-16 items-center justify-center border-b">
-      <div className="container flex items-center justify-between p-4 md:px-8 md:py-4">
+    <header className="flex items-center justify-center border-b">
+      <div className="container flex items-center justify-between p-4">
         <Link href="/" className="text-xl font-bold text-gray-800">
           Boutique
         </Link>
@@ -59,6 +71,34 @@ const Navbar = () => {
             <SignUpButton>S&apos;inscrire</SignUpButton>
           </SignedOut>
         </ul>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger className="md:hidden">
+            <Button size={"icon"}>
+              <Menu />
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent>
+            {navLinks.map((item) => (
+              <DropdownMenuItem key={item.label} asChild>
+                <Link href={item.href}>{item.label}</Link>
+              </DropdownMenuItem>
+            ))}
+
+            <SignedOut>
+              <SignInButton>
+                <DropdownMenuItem>Se connecter</DropdownMenuItem>
+              </SignInButton>
+            </SignedOut>
+
+            <SignedIn>
+              <SignOutButton>
+                <DropdownMenuItem>Se Deconnecter</DropdownMenuItem>
+              </SignOutButton>
+            </SignedIn>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );

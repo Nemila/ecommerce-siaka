@@ -1,8 +1,7 @@
-import React from "react";
-import ProductCard from "../product-card";
-import { Button } from "../ui/button";
-import Link from "next/link";
+import ProductCard from "@/components/product-card";
+import { Button } from "@/components/ui/button";
 import products from "@/lib/products.json";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -14,17 +13,18 @@ const Products = ({ title, description, category }: Props) => {
   const data = products.filter((item) => item.categories.includes(category));
 
   return (
-    <section className="space-y-4">
+    <section className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="line-clamp-1 text-lg font-semibold md:text-2xl">
             {title}
           </h2>
+
           <p className="line-clamp-2 text-sm md:text-base">{description}</p>
         </div>
 
         <Button variant="outline">
-          <Link href="/">Voir plus</Link>
+          <Link href="/products">Voir plus</Link>
         </Button>
       </div>
 
